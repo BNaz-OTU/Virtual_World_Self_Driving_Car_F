@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<head>
+<html>
+  <head>
     <title>Self-driving car - Race</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Make sure to include tabindex="1" because that allows for keyboard input to be 
     detected on the canvas (without it I wouldn't be able to pan) -->
     <canvas tabindex="1" id="carCanvas"></canvas>
     <canvas id="miniMapCanvas" class="miniMap"></canvas>
     <div id="statistics"></div>
     <div id="counter"></div>
-    
 
     <script src="world/js/world.js"></script>
     <script src="world/js/viewport.js"></script>
@@ -45,6 +45,7 @@
     <!-- <script src="world/saves/big_with_target.world"></script> -->
     <script src="saves/right_hand_rule.car"></script>
 
+    <script src="sound.js"></script>
     <script src="miniMap.js"></script>
     <script src="visualizer.js"></script>
     <script src="network.js"></script>
@@ -53,5 +54,5 @@
     <script src="controls.js"></script>
     <script src="car.js"></script>
     <script src="race.js"></script>
-</body>
+  </body>
 </html>

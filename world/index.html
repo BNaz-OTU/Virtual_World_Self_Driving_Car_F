@@ -65,9 +65,9 @@
     <script src="js/primitives/polygon.js"></script>
     <script src="js/primitives/envelope.js"></script>
 
-    <!-- <script src="saves/big_with_target.world"></script> -->
+    <script src="saves/big_with_target.world"></script>
     <!-- <script src="saves/big.world"></script> -->
-    <script src="saves/path_finding.world"></script>
+    <!-- <script src="saves/path_finding.world"></script> -->
 
     <script>
       myCanvas.width = 600;
@@ -108,7 +108,7 @@
       function animate() {
         viewport.reset();
         if (graph.hash() != oldGraphHash) {
-          world.generate();
+          //world.generate();
           oldGraphHash = graph.hash();
         }
         const viewPoint = scale(viewport.getOffset(), -1);

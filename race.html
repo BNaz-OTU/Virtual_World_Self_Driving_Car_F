@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <head>
-    <title>Self-driving car - No libraries</title>
+    <title>Self-driving car - Race</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Make sure to include tabindex="1" because that allows for keyboard input to be 
     detected on the canvas (without it I wouldn't be able to pan) -->
     <canvas tabindex="1" id="carCanvas"></canvas>
-    <div id="verticalButtons">
-        <button onclick="save()">💾</button>
-        <button onclick="discard()">🗑️</button>
-    </div>
-    <div>
-        <canvas id="networkCanvas"></canvas>
-        <canvas id="miniMapCanvas"></canvas>
-    </div>
+    <canvas id="miniMapCanvas" class="miniMap"></canvas>
+    <div id="statistics"></div>
+    <div id="counter"></div>
+    
 
     <script src="world/js/world.js"></script>
     <script src="world/js/viewport.js"></script>
@@ -56,6 +52,6 @@
     <script src="utils.js"></script>
     <script src="controls.js"></script>
     <script src="car.js"></script>
-    <script src="main.js"></script>
+    <script src="race.js"></script>
 </body>
 </html>

@@ -1,8 +1,14 @@
 const rightPanelWidth = 300;
 
+document.body.style.flexDirection = "column";
+
 const carCanvas = document.getElementById("carCanvas");
 carCanvas.width = window.innerWidth;
-carCanvas.height = window.innerHeight;
+carCanvas.height = window.innerHeight / 2;
+
+const cameraCanvas = document.getElementById("cameraCanvas");
+cameraCanvas.width = window.innerWidth;
+cameraCanvas.height = window.innerHeight / 2;
 
 const miniMapCanvas = document.getElementById("miniMapCanvas");
 miniMapCanvas.width = rightPanelWidth;
@@ -12,6 +18,7 @@ statistics.style.width = rightPanelWidth + "px";
 statistics.style.height = window.innerHeight - rightPanelWidth - 60 + "px";
 
 const carCtx = carCanvas.getContext("2d");
+const cameraCtx = cameraCanvas.getContext("2d");
 
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 const miniMap = new MiniMap(miniMapCanvas, world.graph, rightPanelWidth);
@@ -19,6 +26,8 @@ const miniMap = new MiniMap(miniMapCanvas, world.graph, rightPanelWidth);
 const N = 100;
 const cars = generateCars(1, "KEYS").concat(generateCars(N, "AI"));
 const myCar = cars[0];
+const camera = new Camera(myCar);
+
 if (localStorage.getItem("bestBrain")) {
   for (let i = 0; i < cars.length; i++) {
     cars[i].brain = JSON.parse(localStorage.getItem("bestBrain"));
@@ -47,7 +56,7 @@ if (target) {
 }
 
 let frameCount = 0;
-let started = false;
+let started = true;
 
 startCounter();
 animate();
@@ -178,6 +187,10 @@ function animate() {
         "s </span>";
     }
   }
+
+  camera.move(myCar);
+  camera.draw(carCtx);
+  camera.render(cameraCtx, world);
 
   frameCount++;
   requestAnimationFrame(animate);

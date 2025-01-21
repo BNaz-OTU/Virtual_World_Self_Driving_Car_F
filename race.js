@@ -56,7 +56,7 @@ if (target) {
 }
 
 let frameCount = 0;
-let started = true;
+let started = false;
 
 startCounter();
 animate();
